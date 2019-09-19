@@ -1,0 +1,24 @@
+div.layout-menu-search {
+    padding: 1.5em;
+    overflow: visible;
+    position: relative;
+}
+
+a.layout-menu-search {
+    width: 100%;
+    height: 50px;
+    display: block;
+    padding: 15px 0 0 25px;
+    cursor: pointer;
+    border-top: 1px solid #e3e9ea;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+a.layout-menu-search:hover {
+    background-color: #f4f4f4;
+    color: black;
+}

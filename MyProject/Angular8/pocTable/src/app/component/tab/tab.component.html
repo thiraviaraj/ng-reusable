@@ -1,0 +1,16 @@
+<div class="p-col-12">
+    <p-tabMenu [model]="items2" [activeItem]="activeItem">
+      <ng-template pTemplate="item" let-item let-i="index">
+        <div style="position: relative; text-align: center; min-width: 10em">
+          <div class="ui-menuitem-icon" [ngClass]="item.icon" *ngIf="item.icon" style="font-size: 2em"></div>
+          <div class="ui-menuitem-text">
+            {{item.label}}
+          </div>
+          <a tabindex="0" class="ui-menuitem-icon" (click)="closeItem($event, i)"
+            style="position: absolute; right: -1em; top: -.5em; padding: 0" *ngIf="i !== 0">
+            <span class="pi pi-times"></span>
+          </a>
+        </div>
+      </ng-template>
+    </p-tabMenu>
+  </div>

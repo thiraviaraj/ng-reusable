@@ -1,0 +1,57 @@
+{{percent}}
+<p-table scroll-directive (onScroll)="track($event)" (onLazyLoad)="loadData($event)" [lazy]="true" [value]="sales"
+#sale [globalFilterFields]="['vin','year']" [(contextMenuSelection)]="selectedCar" [contextMenu]="cm"
+[scrollable]="true" scrollHeight="200px">
+<ng-template pTemplate="caption">
+  <div style="text-align:left">
+    <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+      selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" defaultLabel="Choose Columns">
+    </p-multiSelect>
+  </div>
+  <div style="text-align: right">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input type="text" pInputText size="50" placeholder="Global Filter"
+      (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto"></div>
+</ng-template>
+<ng-template pTemplate="header">
+  <tr>
+    <th rowspan="3">Brand</th>
+    <th colspan="4">Sale Rate</th>
+  </tr>
+  <tr>
+    <th colspan="2">Sales</th>
+    <th colspan="2">Profits</th>
+  </tr>
+  <tr>
+    <th>Last Year</th>
+    <th>This Year</th>
+    <th>Last Year</th>
+    <th>This Year</th>
+  </tr>
+</ng-template>
+<ng-template pTemplate="body" let-test>
+  <tr [pContextMenuRow]="test">
+    <td>
+      <a href="#" [pRowToggler]="rowData">
+        <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+      </a>
+    </td>
+    <td>{{test.brand}}</td>
+    <td>{{test.lastYearSale}}</td>
+    <td>{{test.thisYearSale}}</td>
+    <td>{{test.lastYearProfit}}</td>
+    <td>{{test.thisYearProfit}}</td>
+  </tr>
+</ng-template>
+<ng-template pTemplate="footer">
+  <tr>
+    <td colspan="3">Totals {{sale.virtualRowHeight|json}}</td>
+    <td>$506,202</td>
+    <td>$531,020</td>
+  </tr>
+  <span id="topPls" class="positionAbs" *ngIf="percent>10"><b>Scroll Back Top</b></span>
+</ng-template>
+
+</p-table>
+
+<p-contextMenu #cm [model]="citems"></p-contextMenu>

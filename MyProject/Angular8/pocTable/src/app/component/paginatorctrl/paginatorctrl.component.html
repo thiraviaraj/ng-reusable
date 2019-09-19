@@ -1,0 +1,46 @@
+<div class="p-col-12">
+    <p-table #dt (onEditInit)="editTemplate($event)" [(selection)]="rowData" selectionMode="multiple" [value]="cars">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Year</th>
+                    <th>Brand</th>
+                    <th>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-car>
+                <tr>
+                    <td [pEditableColumn]="car" pEditableColumnField="brand">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <input type="text" trigger-tab (onScroll)="track1($event)" [(ngModel)]="car.brand" />
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                        {{car.brand}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                    <td [pEditableColumn]="car" pEditableColumnField="year">
+                            <p-cellEditor>
+                                    <ng-template pTemplate="input">
+                                        <input type="text" trigger-tab (onScroll)="track1($event)" [(ngModel)]="car.year" />
+                                    </ng-template>
+                                    <ng-template pTemplate="output">
+                                            {{car.year}}
+                                    </ng-template>
+                                </p-cellEditor>
+                    </td>
+                    <td>{{car.color}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="footer">
+                    <tr>
+                      <td colspan="2">Totals</td>
+                      <td>{{sumProp(cars, 'year')}}</td>
+                    </tr>
+                  </ng-template>
+        </p-table>
+        {{carsFull.length}}
+    <app-paginator rows='10' [totalRecords]="carsFull.length" [rowsPerPageOptions]="[10,20]"
+    [@openClose]="isOpen ? 'open' : 'closed'" (onPagechange)="onPageChange($event)"></app-paginator>
+    <input type="text" pTooltip="Enter your username">
+</div>

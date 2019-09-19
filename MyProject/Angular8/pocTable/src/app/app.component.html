@@ -1,8 +1,86 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Hello {{ title }}!
-  </h1>
-</div>
+<div>
+  <div id="layout-topbar"> <span>
+      <h2>Companies</h2>
+    </span> </div>
+  <div id="layout-sidebar">
+    <div class="layout-menu">
+      <app-menu></app-menu>
+    </div>
+  </div>
+  <div id="layout-content" class="p-grid">
+    <div class="p-col-12">
+      <div><span class="feature-title">ReUsables </span><span>Hello
+          
+          {{ title }}!</span></div>
+    </div>
+    
+    <div class="p-col-12">
+        <router-outlet></router-outlet>
+    </div>
+    
+  </div>
+  <!-- <div class="scroll" scroll-directive (onScroll)="track($event)">
 
-<router-outlet></router-outlet>
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+    bla<br />
+  </div> -->
+</div>
